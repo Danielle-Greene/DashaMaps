@@ -47,12 +47,36 @@ class MyLinkedListTest {
 
     @Test
     public void removeTest() {
+
+        MyLinkedList mll = new MyLinkedList("brent");
+        String expectedKey = "nigel";
+        Integer expectedValue = 15;
+        mll.add(expectedKey, expectedValue);
+
+        Integer actualValue = mll.remove(expectedKey);
+
+        Assert.assertEquals(expectedValue, actualValue);
+        Assert.assertEquals(true, mll.isEmpty());
     }
 
     @Test
     public void isEmptyTest() {
         MyLinkedList mll = new MyLinkedList("brent");
         boolean actual = mll.isEmpty();
+
+        Assert.assertEquals(true, actual);
         
     }
-}
+
+    @Test
+    public void isNotEmptyTest() {
+        MyLinkedList mll = new MyLinkedList("brent");
+
+        mll.add("nigel", 6);
+
+        boolean actual = mll.isEmpty();
+
+        Assert.assertEquals(false, actual);
+    }
+
+    }

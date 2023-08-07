@@ -7,8 +7,9 @@ public class MyNode {
     MyPair data;
 
     MyNode next;
+    private MyNode head;
 
-  public MyNode(String key, Integer value){
+    public MyNode(String key, Integer value){
       data = new MyPair(key, value);
       next = null;
   }
@@ -23,6 +24,22 @@ public class MyNode {
 
     public void setNext(MyNode next) {
         this.next = next;
+    }
+
+    public Integer remove(String key){
+      MyNode previousNode = head;
+      MyNode currentNode = head.getNext();
+
+      while(currentNode != null && !currentNode.getData().getKey().equals(key)){
+          previousNode = currentNode;
+          currentNode = currentNode.getNext();
+      }
+      if(currentNode == null){
+          return null;
+      }
+
+      previousNode.setNext(currentNode.getNext());
+      return currentNode.getData().getValue();
     }
 
     @Override

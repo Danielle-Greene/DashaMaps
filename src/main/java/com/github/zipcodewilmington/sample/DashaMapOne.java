@@ -1,4 +1,6 @@
 package com.github.zipcodewilmington.sample;
 
-public class DashaMapOne {
+import com.github.zipcodewilmington.DashaMap;
+
+public class DashaMapOne extends DashaMap {
 }
